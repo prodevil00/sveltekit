@@ -1,5 +1,5 @@
-// import adapter from '@sveltejs/adapter-auto';
-import adapter from '@sveltejs/adapter-cloudflare';
+import adapter from '@sveltejs/adapter-auto';
+// import adapter from '@sveltejs/adapter-cloudflare';
 
 // import { middleware } from './src/middleware.js';
 
