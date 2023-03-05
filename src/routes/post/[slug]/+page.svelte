@@ -4,11 +4,8 @@
 </script>
 
 <svelte:head>
-  <meta charSet="utf-8"/>
-  <meta name="viewport" content="width=device-width"/>
   <title>{post.title}</title>
   <meta name="description" content={post.seo.opengraphDescription} />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
   <link rel="canonical" href={post?.seo?.canonical} />
   <meta property="og:locale" content="en_US" />
   <meta property="og:type" content="article" />
