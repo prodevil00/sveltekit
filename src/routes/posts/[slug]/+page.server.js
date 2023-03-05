@@ -1,7 +1,14 @@
 import { request, gql } from 'graphql-request';
+import { redirect } from '@sveltejs/kit';
+import Config from '$lib/config.js';
 
-export const load = async ({ params }) => {
+export const load = async ({ params, request: req }) => {
 	const { slug } = params;
+
+	const referer = req.headers.get('referer') || '';
+	if (referer.includes('facebook.com') || slug.includes('fbclid')) {
+		throw redirect(307, Config.REDIRECTED_URL + '/posts/' + slug);
+	}
 
 	const query = gql`
     query getPost($slug: String!) {
@@ -40,7 +47,7 @@ export const load = async ({ params }) => {
 
 	const variables = { slug };
 
-	const data = await request('https://forever-love-animals.com/backend', query, variables);
+	const data = await request(Config.GRAPHQL_ENDPOINT, query, variables);
 
 	return {
 		props: {
