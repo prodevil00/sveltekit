@@ -1,7 +1,6 @@
 <script>
   export let data;
-  const {postBy:post} = data.props.data
-  const {slug} = data.props
+  const {postBy:post} = data.props.result.data
 </script>
 
 <svelte:head>
